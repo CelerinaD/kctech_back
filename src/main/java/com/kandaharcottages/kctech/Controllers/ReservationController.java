@@ -64,7 +64,6 @@ public class ReservationController {
         Room room = roomRepo.findById(newReservation.getRoomId())
             .orElseThrow(() -> new RuntimeException("Room not found"));
 
-        newReservation.computeTotal(room.getPrice());
         newReservation.setStatus("Pending");
         repo.save(newReservation);
 
